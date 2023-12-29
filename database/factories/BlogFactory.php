@@ -14,6 +14,7 @@ class BlogFactory extends Factory
         return [
             'title' => fake()->sentence(),
             'description' => fake()->text(50),
+            'slug' => fake()->slug(4),
             'published_at' => fake()->dateTimeBetween(),
         ];
     }
