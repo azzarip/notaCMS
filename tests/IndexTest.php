@@ -28,7 +28,7 @@ it('paginates from config', function () {
 it('shows posts with past published_at', function () {
     $postOk = BlogFactory::new()->create();
     $postNot = BlogFactory::new()->create([
-        'published_at' => fake()->dateTimeInInterval('now', '+1 week')
+        'published_at' => fake()->dateTimeInInterval('now', '+1 week'),
     ]);
 
     get(config('notacms.blog.path'))
