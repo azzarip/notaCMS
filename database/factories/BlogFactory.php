@@ -2,10 +2,10 @@
 
 namespace Azzarip\NotaCMS\Database\Factories;
 
-use App\Models\Blog;
+use Azzarip\NotaCMS\Blog;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ModelFactory extends Factory
+class BlogFactory extends Factory
 {
     protected $model = Blog::class;
 
@@ -13,7 +13,7 @@ class ModelFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
-            'body' => fake()->text(),
+            'description' => fake()->text(50),
         ];
     }
 }

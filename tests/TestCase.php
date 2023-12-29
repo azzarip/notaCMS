@@ -3,9 +3,8 @@
 namespace Azzarip\NotaCMS\Tests;
 
 use Azzarip\NotaCMS\NotaCMSServiceProvider;
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Azzarip\NotaCMS\NotaCMSServiceProvider;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TestCase extends Orchestra
 {
@@ -29,9 +28,8 @@ class TestCase extends Orchestra
     {
         config()->set('database.default', 'testing');
 
-        /*
-        $migration = include __DIR__.'/../database/migrations/create_notacms_table.php.stub';
+        $migration = include __DIR__.'/../database/migrations/create_blog_table.php.stub';
         $migration->up();
-        */
+        
     }
 }

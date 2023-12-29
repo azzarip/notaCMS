@@ -5,8 +5,6 @@ namespace Azzarip\NotaCMS;
 use Azzarip\NotaCMS\Commands\NotaCMSCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Azzarip\NotaCMS\Commands\NotaCMSCommand;
-
 class NotaCMSServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
@@ -18,9 +16,10 @@ class NotaCMSServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('notacms')
-            ->hasConfigFile()
+            ->hasConfigFile('blog')
             ->hasViews()
             ->hasMigration('create_notacms_table')
+            ->hasRoute('web')
             ->hasCommand(NotaCMSCommand::class);
     }
 }
