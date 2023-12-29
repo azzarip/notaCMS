@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\Database\Factories;
+namespace azzarip\NotaCMS\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

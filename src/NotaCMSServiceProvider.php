@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace azzarip\NotaCMS;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
+use azzarip\NotaCMS\Commands\NotaCMSCommand;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class NotaCMSServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -16,10 +16,10 @@ class SkeletonServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('skeleton')
+            ->name('notacms')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_skeleton_table')
-            ->hasCommand(SkeletonCommand::class);
+            ->hasMigration('create_notacms_table')
+            ->hasCommand(NotaCMSCommand::class);
     }
 }
