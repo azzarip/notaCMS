@@ -2,6 +2,7 @@
 
 namespace Azzarip\NotaCMS\Tests;
 
+use Azzarip\NotaCMS\NotaCMSServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Azzarip\NotaCMS\NotaCMSServiceProvider;

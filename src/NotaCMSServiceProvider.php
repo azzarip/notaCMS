@@ -2,6 +2,7 @@
 
 namespace Azzarip\NotaCMS;
 
+use Azzarip\NotaCMS\Commands\NotaCMSCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Azzarip\NotaCMS\Commands\NotaCMSCommand;
