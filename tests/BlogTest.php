@@ -1,7 +1,8 @@
-<?php 
-use function Pest\Laravel\get;
+<?php
+
 use Azzarip\NotaCMS\Database\Factories\BlogFactory;
 
+use function Pest\Laravel\get;
 
 test('/{blog} shows title and description of a post', function () {
     $post = BlogFactory::new()->create();
@@ -16,6 +17,6 @@ test('/{blog} paginates from config', function () {
     $postNot = BlogFactory::new()->create();
 
     get(config('blog.path'))
-         ->assertSeeTextInOrder($postOk->pluck('title')->toArray())
-         ->assertDontSee($postNot->title);
+        ->assertSeeTextInOrder($postOk->pluck('title')->toArray())
+        ->assertDontSee($postNot->title);
 });

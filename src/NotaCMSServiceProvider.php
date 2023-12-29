@@ -5,6 +5,7 @@ namespace Azzarip\NotaCMS;
 use Azzarip\NotaCMS\Commands\NotaCMSCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+
 class NotaCMSServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
