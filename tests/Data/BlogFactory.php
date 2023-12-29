@@ -1,6 +1,6 @@
 <?php
 
-namespace Azzarip\NotaCMS\Database\Factories;
+namespace Azzarip\NotaCMS\Tests\Data;
 
 use Azzarip\NotaCMS\Blog;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -15,7 +15,7 @@ class BlogFactory extends Factory
             'title' => fake()->sentence(),
             'description' => fake()->text(50),
             'slug' => fake()->slug(4),
-            'published_at' => fake()->dateTimeBetween(),
+            'published_at' => fake()->dateTimeInInterval('-1 week', '+1 day'),
         ];
     }
 }
