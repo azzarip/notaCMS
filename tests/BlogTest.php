@@ -1,6 +1,7 @@
-<?php 
-use function Pest\Laravel\get;
+<?php
+
 use Azzarip\NotaCMS\Database\Factories\BlogFactory;
+use function Pest\Laravel\get;
 
 test('/{path} is taken from config', function () {
     get(config('blog.path'))->assertOk();
@@ -19,8 +20,8 @@ it('paginates from config', function () {
     $postNot = BlogFactory::new()->create();
 
     get(config('blog.path'))
-         ->assertSeeTextInOrder($postOk->pluck('title')->toArray())
-         ->assertDontSee($postNot->title);
+        ->assertSeeTextInOrder($postOk->pluck('title')->toArray())
+        ->assertDontSee($postNot->title);
 });
 
 it('shows posts with past published_at', function () {
@@ -28,7 +29,7 @@ it('shows posts with past published_at', function () {
     $postNot = BlogFactory::new()->create([
         'published_at' => fake()->dateTimeInInterval('now', '+1 week')
     ]);
-    
+
     get(config('blog.path'))
         ->assertSeeText($postOk->title)
         ->assertDontSeeText($postNot->title);
