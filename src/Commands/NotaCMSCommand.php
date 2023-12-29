@@ -1,6 +1,6 @@
 <?php
 
-namespace azzarip\NotaCMS\Commands;
+namespace Azzarip\NotaCMS\Commands;
 
 use Illuminate\Console\Command;
 

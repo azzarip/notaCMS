@@ -1,16 +1,16 @@
 <?php
 
-namespace azzarip\NotaCMS\Facades;
+namespace Azzarip\NotaCMS\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \azzarip\NotaCMS\NotaCMS
+ * @see \Azzarip\NotaCMS\NotaCMS
  */
 class NotaCMS extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \azzarip\NotaCMS\NotaCMS::class;
+        return \Azzarip\NotaCMS\NotaCMS::class;
     }
 }

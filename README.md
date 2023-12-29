@@ -1,9 +1,9 @@
 # A VCS CMS for Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/azzarip/notacms.svg?style=flat-square)](https://packagist.org/packages/azzarip/notacms)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/azzarip/notacms/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/azzarip/notacms/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/azzarip/notacms/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/azzarip/notacms/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/azzarip/notacms.svg?style=flat-square)](https://packagist.org/packages/azzarip/notacms)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/Azzarip/notacms.svg?style=flat-square)](https://packagist.org/packages/Azzarip/notacms)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/Azzarip/notacms/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/Azzarip/notacms/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/Azzarip/notacms/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/Azzarip/notacms/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/Azzarip/notacms.svg?style=flat-square)](https://packagist.org/packages/Azzarip/notacms)
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
@@ -20,7 +20,7 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 You can install the package via composer:
 
 ```bash
-composer require azzarip/notacms
+composer require Azzarip/notacms
 ```
 
 You can publish and run the migrations with:
@@ -52,8 +52,8 @@ php artisan vendor:publish --tag="notacms-views"
 ## Usage
 
 ```php
-$notaCMS = new azzarip\NotaCMS();
-echo $notaCMS->echoPhrase('Hello, azzarip!');
+$notaCMS = new Azzarip\NotaCMS();
+echo $notaCMS->echoPhrase('Hello, Azzarip!');
 ```
 
 ## Testing

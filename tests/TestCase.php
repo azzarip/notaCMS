@@ -1,10 +1,10 @@
 <?php
 
-namespace azzarip\NotaCMS\Tests;
+namespace Azzarip\NotaCMS\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use azzarip\NotaCMS\NotaCMSServiceProvider;
+use Azzarip\NotaCMS\NotaCMSServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -13,7 +13,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'azzarip\\NotaCMS\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Azzarip\\NotaCMS\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 

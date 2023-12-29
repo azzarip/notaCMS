@@ -1,6 +1,6 @@
 <?php
 
-namespace azzarip\NotaCMS;
+namespace Azzarip\NotaCMS;
 
 class NotaCMS
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace azzarip\NotaCMS;
+namespace Azzarip\NotaCMS;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use azzarip\NotaCMS\Commands\NotaCMSCommand;
+use Azzarip\NotaCMS\Commands\NotaCMSCommand;
 
 class NotaCMSServiceProvider extends PackageServiceProvider
 {

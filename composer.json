@@ -17,8 +17,9 @@
     ],
     "require": {
         "php": "^8.1",
+        "illuminate/contracts": "^10.0",
         "spatie/laravel-package-tools": "^1.14.0",
-        "illuminate/contracts": "^10.0"
+        "spatie/yaml-front-matter": "^2.0"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
@@ -35,13 +36,13 @@
     },
     "autoload": {
         "psr-4": {
-            "azzarip\\NotaCMS\\": "src/",
-            "azzarip\\NotaCMS\\Database\\Factories\\": "database/factories/"
+            "Azzarip\\NotaCMS\\": "src/",
+            "Azzarip\\NotaCMS\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "azzarip\\NotaCMS\\Tests\\": "tests/",
+            "Azzarip\\NotaCMS\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -73,10 +74,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "azzarip\\NotaCMS\\NotaCMSServiceProvider"
+                "Azzarip\\NotaCMS\\NotaCMSServiceProvider"
             ],
             "aliases": {
-                "NotaCMS": "azzarip\\NotaCMS\\Facades\\NotaCMS"
+                "NotaCMS": "Azzarip\\NotaCMS\\Facades\\NotaCMS"
             }
         }
     },

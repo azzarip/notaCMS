@@ -1,6 +1,6 @@
 <?php
 
-// config for azzarip/NotaCMS
+// config for Azzarip/NotaCMS
 return [
-
+    'paginate' => 7
 ];
