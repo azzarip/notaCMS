@@ -22,12 +22,12 @@ class Blog extends Model
             ->paginate();
     }
 
-    public function getUrlAttribute() 
+    public function getUrlAttribute()
     {
         return url(config('notacms.blog.path').'/'.$this->slug);
     }
 
-    public static function open(string $slug): Blog 
+    public static function open(string $slug): Blog
     {
         return self::where('slug', $slug)->first();
 
@@ -35,19 +35,18 @@ class Blog extends Model
 
     public static function loadFile(string $path): ?Blog
     {
-        if (!file_exists($path)) {
+        if (! file_exists($path)) {
             return null;
         }
-        
+
         $file = YamlFrontMatter::parseFile($path);
-        
+
         return Blog::updateOrCreate([
             'slug' => pathinfo($path)['filename'],
-        ],[
+        ], [
             'title' => $file->title,
             'description' => $file->description,
-            'published_at' => \Carbon\Carbon::parse($file->published_at)
+            'published_at' => \Carbon\Carbon::parse($file->published_at),
         ]);
     }
-
 }

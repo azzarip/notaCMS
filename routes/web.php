@@ -9,7 +9,8 @@ Route::get(config('notacms.blog.path'), function () {
     return view('notacms::index', compact('posts'));
 });
 
-Route::get(config('notacms.blog.path') . '/{slug}', function ($slug) {
+Route::get(config('notacms.blog.path').'/{slug}', function ($slug) {
     $post = Blog::open($slug);
+
     return view('notacms::show', compact('post'));
 });

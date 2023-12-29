@@ -1,7 +1,8 @@
 <?php
 
 use Azzarip\NotaCMS\Blog;
-beforeEach(function() {
+
+beforeEach(function () {
     $this->path = __DIR__.'/../tests/Data/blogpost.html';
 });
 
@@ -14,10 +15,10 @@ it('creates a blog from file', function () {
 
 it('updates a blog if slug exists', function () {
     $original = Blog::create([
-        'title' => '::title_original::', 
+        'title' => '::title_original::',
         'description' => '::description_original::',
         'slug' => 'blogpost',
-        'published_at' => '2020-01-01'
+        'published_at' => '2020-01-01',
     ]);
     Blog::loadFile($this->path);
     $post = Blog::open('blogpost');

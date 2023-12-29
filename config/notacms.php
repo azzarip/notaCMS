@@ -3,6 +3,6 @@
 return [
     'blog' => [
         'path' => 'blog',
-        'model' => \Azzarip\NotaCMS\Blog::class
+        'model' => \Azzarip\NotaCMS\Blog::class,
     ],
 ];
