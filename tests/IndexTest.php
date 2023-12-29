@@ -15,8 +15,7 @@ it('shows title, description, published_at of a post', function () {
 });
 
 it('paginates from config', function () {
-    $paginate = config('notacms.blog.paginate');
-    $postOk = BlogFactory::new()->count($paginate)->create();
+    $postOk = BlogFactory::new()->count(7)->create();
     $postNot = BlogFactory::new()->create([
         'published_at' => now()->subMonth(),
     ]);
