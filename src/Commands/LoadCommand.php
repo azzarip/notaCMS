@@ -24,7 +24,6 @@ class LoadCommand extends Command
         foreach ($htmlFiles as $file) {
             \Azzarip\NotaCMS\Blog::loadFile($file->getPathname());
         }
-
         $this->comment('All files loaded');
 
         return self::SUCCESS;
