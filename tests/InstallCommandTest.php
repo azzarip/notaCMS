@@ -15,11 +15,18 @@ it('publishes configuration', function () {
 });
 
 it('publishes migration', function () {
-    Carbon::setTestNow(Carbon::parse('2020-01-01 00:00:00'));
-
     $this
         ->artisan('notacms:install')
         ->assertSuccessful();
     
     $this->assertFileExists(database_path('migrations/2023_12_30_133101_2023_12_23_000000_create_blog_table.php'));
+});
+
+it('creates file folder', function () {
+    $this
+        ->artisan('notacms:install')
+        ->assertSuccessful();
+
+    $filePath = base_path('content/notacms/blog/MyFirstPost.html');
+    expect(File::exists($filePath))->toBeTrue();
 });
