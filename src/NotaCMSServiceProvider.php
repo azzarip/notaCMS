@@ -2,8 +2,9 @@
 
 namespace Azzarip\NotaCMS;
 
-use Azzarip\NotaCMS\Commands\NotaCMSCommand;
 use Spatie\LaravelPackageTools\Package;
+use Azzarip\NotaCMS\Commands\LoadCommand;
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class NotaCMSServiceProvider extends PackageServiceProvider
@@ -19,8 +20,14 @@ class NotaCMSServiceProvider extends PackageServiceProvider
             ->name('notacms')
             ->hasConfigFile('notacms')
             ->hasViews()
-            ->hasMigration('create_notacms_table')
+            ->hasMigration('2023_12_23_000000_create_blog_table')
             ->hasRoute('web')
-            ->hasCommand(NotaCMSCommand::class);
+            ->hasCommand(LoadCommand::class)
+            ->hasInstallCommand(function(InstallCommand $command) {
+                $command
+                    ->publishConfigFile()
+                    ->publishMigrations()
+                    ->copyAndRegisterServiceProviderInApp();
+            });
     }
 }

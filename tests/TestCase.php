@@ -28,7 +28,7 @@ class TestCase extends Orchestra
     {
         config()->set('database.default', 'testing');
 
-        $migration = include __DIR__.'/../database/migrations/create_blog_table.php.stub';
+        $migration = include __DIR__.'/../database/migrations/2023_12_23_000000_create_blog_table.php';
         $migration->up();
 
     }

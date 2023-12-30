@@ -9,6 +9,8 @@ class Blog extends Model
 {
     protected $guarded = [];
 
+    protected $table = 'blog';
+    
     protected $perPage = 7;
 
     protected $casts = [
