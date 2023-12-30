@@ -2,10 +2,10 @@
 
 namespace Azzarip\NotaCMS\Tests;
 
-use Illuminate\Support\Facades\File;
 use Azzarip\NotaCMS\NotaCMSServiceProvider;
-use Orchestra\Testbench\TestCase as Orchestra;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\File;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {

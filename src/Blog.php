@@ -42,7 +42,7 @@ class Blog extends Model
         }
 
         $file = YamlFrontMatter::parseFile($path);
-        
+
         return Blog::updateOrCreate([
             'slug' => pathinfo($path)['filename'],
         ], [

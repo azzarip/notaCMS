@@ -7,6 +7,6 @@ it('creates file folder', function () {
         ->artisan('notacms:install')
         ->assertSuccessful();
 
-    $filePath = base_path('content/notacms/' . array_key_first(config('notacms')) . '/MyFirstPost.html');
+    $filePath = base_path('content/notacms/'.array_key_first(config('notacms')).'/MyFirstPost.html');
     expect(File::exists($filePath))->toBeTrue();
 });

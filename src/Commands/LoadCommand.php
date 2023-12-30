@@ -4,7 +4,6 @@ namespace Azzarip\NotaCMS\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 
 class LoadCommand extends Command
 {
@@ -18,9 +17,9 @@ class LoadCommand extends Command
         $htmlFiles = array_filter($files, function ($file) {
             return pathinfo($file, PATHINFO_EXTENSION) === 'html';
         });
-        
-        $this->comment(count($htmlFiles). ' Files found');
-        
+
+        $this->comment(count($htmlFiles).' Files found');
+
         foreach ($htmlFiles as $file) {
             \Azzarip\NotaCMS\Blog::loadFile($file->getPathname());
         }
