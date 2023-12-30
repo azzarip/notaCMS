@@ -2,9 +2,10 @@
 
 namespace Azzarip\NotaCMS\Tests;
 
+use Illuminate\Support\Facades\File;
 use Azzarip\NotaCMS\NotaCMSServiceProvider;
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TestCase extends Orchestra
 {
@@ -15,6 +16,12 @@ class TestCase extends Orchestra
         Factory::guessFactoryNamesUsing(
             fn (string $modelName) => 'Azzarip\\NotaCMS\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
+    }
+
+    protected function tearDown(): void
+    {
+        File::deleteDirectory(base_path('content'));
+        parent::tearDown();
     }
 
     protected function getPackageProviders($app)
@@ -28,7 +35,7 @@ class TestCase extends Orchestra
     {
         config()->set('database.default', 'testing');
 
-        $migration = include __DIR__.'/../database/migrations/2023_12_23_000000_create_blog_table.php';
+        $migration = include __DIR__.'/../database/migrations/create_blog_table.php';
         $migration->up();
 
     }

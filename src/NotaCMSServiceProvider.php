@@ -21,7 +21,7 @@ class NotaCMSServiceProvider extends PackageServiceProvider
             ->name('notacms')
             ->hasConfigFile('notacms')
             ->hasViews()
-            ->hasMigration('2023_12_23_000000_create_blog_table')
+            ->hasMigration('create_blog_table')
             ->hasRoute('web')
             ->hasCommand(LoadCommand::class)
             ->hasInstallCommand(function(InstallCommand $command) {
