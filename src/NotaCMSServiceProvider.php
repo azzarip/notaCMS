@@ -22,13 +22,13 @@ class NotaCMSServiceProvider extends PackageServiceProvider
             ->hasConfigFile('notacms')
             ->hasViews()
             ->hasMigration('create_blog_table')
-            ->hasMigration('create_seo_table')
             ->hasRoute('web')
             ->hasCommand(LoadCommand::class)
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()
                     ->publishMigrations()
+                    ->publish('views')
                     ->copyAndRegisterServiceProviderInApp();
 
                 $path = base_path('/content/notacms/blog');
