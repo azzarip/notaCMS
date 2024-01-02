@@ -8,10 +8,10 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('blog', function (Blueprint $table) {
+        Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
             $table->string('slug')->index();
+            $table->string('title');
             $table->text('description');
             $table->timestamp('published_at');
             $table->timestamps();

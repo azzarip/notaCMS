@@ -21,7 +21,7 @@ it('updates a blog if slug exists', function () {
         'published_at' => '2020-01-01',
     ]);
     Blog::loadFile($this->path);
-    $post = Blog::open('blogpost');
+    $post = Blog::findSlug('blogpost');
     expect($post->title)->toBe('::title::');
     expect($post->description)->toBe('::description::');
     expect($post->published_at->format('j F Y'))->toBe('5 October 2000');

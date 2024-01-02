@@ -28,6 +28,7 @@ class TestCase extends Orchestra
     {
         return [
             NotaCMSServiceProvider::class,
+            \RalphJSmit\Laravel\SEO\LaravelSEOServiceProvider::class,
         ];
     }
 
@@ -36,6 +37,8 @@ class TestCase extends Orchestra
         config()->set('database.default', 'testing');
 
         $migration = include __DIR__.'/../database/migrations/create_blog_table.php';
+        $migration->up();
+        $migration = include __DIR__.'/../vendor/ralphjsmit/laravel-seo/database/migrations/create_seo_table.php.stub';
         $migration->up();
 
     }
