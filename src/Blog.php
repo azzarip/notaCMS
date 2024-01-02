@@ -35,6 +35,7 @@ class Blog extends Model
     public function getBodyAttribute()
     {
         return YamlFrontMatter::parseFile($this->getFilePath())->body();
+        //test
     }
 
     public static function findSlug(string $slug): Blog
