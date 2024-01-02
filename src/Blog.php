@@ -52,10 +52,6 @@ class Blog extends Model
         );
 
         $fields = Arr::except($fields, array_keys($metaFields));
-        // $fields = Arr::map($fields, fn ($value, $key) =>
-        //     Str::endsWith($key, '_at') ? Carbon::createFromTimestamp($value) : $value
-        // );
-        // dd($fields);
 
         $post = self::updateOrCreate([
             'slug' => pathinfo($path)['filename'],
