@@ -22,8 +22,6 @@ class Blog extends Model
 
     protected string $path;
 
-
-
     public static function published(): Collection
     {
         return self::where('published_at', '<', now())
@@ -65,10 +63,11 @@ class Blog extends Model
 
     private function getFilePath(): string
     {
-        return base_path('content/notacms/') . $this->getPath() . '/' . $this->slug .'.md';
+        return base_path('content/notacms/').$this->getPath().'/'.$this->slug.'.md';
     }
 
-    public function getPath() {
+    public function getPath()
+    {
         return $this->path ?? \lcfirst(class_basename($this));
     }
 
@@ -81,5 +80,4 @@ class Blog extends Model
     {
         return url($this->getPath().'/'.$this->slug);
     }
-
 }

@@ -1,6 +1,5 @@
 <?php
 
-use Azzarip\NotaCMS\Blog;
 use Illuminate\Support\Facades\Artisan;
 
 it('asks for blog name if not given', function () {
