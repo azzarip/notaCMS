@@ -34,7 +34,7 @@ class Blog extends Model
 
     public function getBodyAttribute()
     {
-        return YamlFrontMatter::parseFile(base_path('content/notacms/blog'). '/' .$this->slug . 'md')->body();
+        return YamlFrontMatter::parseFile(base_path('content/notacms/blog').'/'.$this->slug.'md')->body();
     }
 
     public static function findSlug(string $slug): Blog
