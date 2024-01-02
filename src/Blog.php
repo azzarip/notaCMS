@@ -3,9 +3,9 @@
 namespace Azzarip\NotaCMS;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Model;
 use RalphJSmit\Laravel\SEO\Support\HasSEO;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
@@ -47,10 +47,10 @@ class Blog extends Model
 
         $file = YamlFrontMatter::parseFile($path);
         $fields = $file->matter();
-        $metaFields = Arr::where($fields, 
+        $metaFields = Arr::where($fields,
             fn ($v, $key) => Str::startsWith($key, 'meta_')
         );
-            
+
         $fields = Arr::except($fields, array_keys($metaFields));
         // $fields = Arr::map($fields, fn ($value, $key) =>
         //     Str::endsWith($key, '_at') ? Carbon::createFromTimestamp($value) : $value
@@ -61,8 +61,7 @@ class Blog extends Model
             'slug' => pathinfo($path)['filename'],
         ], $fields);
 
-        $metaKeys = Arr::map(array_keys($metaFields), fn ($value, $key) =>
-            Str::after($value, 'meta_'));
+        $metaKeys = Arr::map(array_keys($metaFields), fn ($value, $key) => Str::after($value, 'meta_'));
 
         $metaFields = array_combine($metaKeys, array_values($metaFields));
         $post->seo->update($metaFields);

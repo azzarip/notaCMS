@@ -3,9 +3,8 @@
 use Azzarip\NotaCMS\Blog;
 
 use function Pest\Laravel\get;
-use Azzarip\NotaCMS\Tests\Data\BlogFactory;
 
-beforeEach(function() {
+beforeEach(function () {
     $path = __DIR__.'/../tests/Data/blogpost.html';
     $this->post = Blog::loadFile($path);
     $this->url = $this->post->url;

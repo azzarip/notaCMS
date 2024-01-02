@@ -11,5 +11,6 @@ Route::get(config('notacms.blog.path'), function () {
 
 Route::get(config('notacms.blog.path').'/{slug}', function ($slug) {
     $post = Blog::findSlug($slug);
+
     return view('notacms::show', compact('post'));
 });
