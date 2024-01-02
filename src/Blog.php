@@ -20,24 +20,18 @@ class Blog extends Model
         'published_at' => 'datetime',
     ];
 
-    public static function published()
+    protected string $path;
+
+
+
+    public static function published(): Collection
     {
         return self::where('published_at', '<', now())
             ->orderBy('published_at', 'desc')
             ->paginate();
     }
 
-    public function getUrlAttribute()
-    {
-        return url(config('notacms.blog.path').'/'.$this->slug);
-    }
-
-    public function getBodyAttribute()
-    {
-        return YamlFrontMatter::parseFile($this->getFilePath())->body();
-    }
-
-    public static function findSlug(string $slug): Blog
+    public static function findSlug(string $slug): ?Blog
     {
         return self::where('slug', $slug)->first();
 
@@ -71,6 +65,21 @@ class Blog extends Model
 
     private function getFilePath(): string
     {
-        return base_path('content/notacms/blog').'/'.$this->slug.'.md';
+        return base_path('content/notacms/') . $this->getPath() . '/' . $this->slug .'.md';
     }
+
+    public function getPath() {
+        return $this->path ?? \lcfirst(class_basename($this));
+    }
+
+    public function getBodyAttribute()
+    {
+        return YamlFrontMatter::parseFile($this->getFilePath())->body();
+    }
+
+    public function getUrlAttribute()
+    {
+        return url($this->getPath().'/'.$this->slug);
+    }
+
 }
