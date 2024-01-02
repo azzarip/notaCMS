@@ -32,6 +32,11 @@ class Blog extends Model
         return url(config('notacms.blog.path').'/'.$this->slug);
     }
 
+    public function getBodyAttribute()
+    {
+        return YamlFrontMatter::parseFile(base_path('content/notacms/blog'). '/' .$this->slug . 'md')->body();
+    }
+
     public static function findSlug(string $slug): Blog
     {
         return self::where('slug', $slug)->first();
