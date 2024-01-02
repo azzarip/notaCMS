@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Models;
+
+use Azzarip\NotaCMS\Blog;
+use RalphJSmit\Laravel\SEO\Support\HasSEO;
+
+class {{ blog }} extends Blog
+{
+    protected $perPage = 7;
+
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
+    
+}
