@@ -14,7 +14,7 @@ class LoadCommand extends Command
     public function handle(): int
     {
         $files = File::files(base_path('content/notacms/blog'));
-    
+
         $this->comment(count($htmlFiles).' Files found');
 
         foreach ($files as $file) {
