@@ -2,7 +2,6 @@
 
 namespace Azzarip\NotaCMS;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
