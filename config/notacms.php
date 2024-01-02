@@ -1,8 +1,5 @@
 <?php
 
 return [
-    'blog' => [
-        'path' => 'blog',
-        'model' => \Azzarip\NotaCMS\Blog::class,
-    ],
+    'blog' => \Azzarip\NotaCMS\Blog::class,
 ];
