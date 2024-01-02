@@ -33,8 +33,8 @@ class NotaCMSServiceProvider extends PackageServiceProvider
 
                 $path = base_path('/content/notacms/blog');
                 File::makeDirectory($path, 0755, true, true);
-                $content = file_get_contents(__DIR__.'/../assets/MyFirstPost.html');
-                File::put($path.'/MyFirstPost.html', $content);
+                $content = file_get_contents(__DIR__.'/../assets/MyFirstPost.md');
+                File::put($path.'/MyFirstPost.md', $content);
             });
     }
 }

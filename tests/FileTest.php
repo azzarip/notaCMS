@@ -3,7 +3,7 @@
 use Azzarip\NotaCMS\Blog;
 
 beforeEach(function () {
-    $this->path = __DIR__.'/../tests/Data/blogpost.html';
+    $this->path = __DIR__.'/../tests/Data/blogpost.md';
 });
 
 it('creates a blog from file', function () {

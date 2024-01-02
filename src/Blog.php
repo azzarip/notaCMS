@@ -34,7 +34,7 @@ class Blog extends Model
 
     public function getBodyAttribute()
     {
-        return YamlFrontMatter::parseFile(base_path('content/notacms/blog'). '/' .$this->slug . 'md')->body();
+        return YamlFrontMatter::parseFile($this->getFilePath())->body();
     }
 
     public static function findSlug(string $slug): Blog
@@ -67,6 +67,10 @@ class Blog extends Model
         $post->seo->update($metaFields);
 
         return $post;
+    }
 
+    private function getFilePath(): string 
+    {
+        return base_path('content/notacms/blog'). '/' . $this->slug . '.md';
     }
 }

@@ -15,10 +15,8 @@ class LoadCommand extends Command
     {
         $files = File::files(base_path('content/notacms/blog'));
 
-        $this->comment(count($htmlFiles).' Files found');
-
         foreach ($files as $file) {
-            if (pathinfo($file, PATHINFO_EXTENSION) === 'html') {
+            if (pathinfo($file, PATHINFO_EXTENSION) === 'md') {
                 \Azzarip\NotaCMS\Blog::loadFile($file->getPathname());
             }
         }
