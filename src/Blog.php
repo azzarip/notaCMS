@@ -69,8 +69,8 @@ class Blog extends Model
         return $post;
     }
 
-    private function getFilePath(): string 
+    private function getFilePath(): string
     {
-        return base_path('content/notacms/blog'). '/' . $this->slug . '.md';
+        return base_path('content/notacms/blog').'/'.$this->slug.'.md';
     }
 }
