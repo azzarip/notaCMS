@@ -14,14 +14,13 @@ class LoadCommand extends Command
     public function handle(): int
     {
         $files = File::files(base_path('content/notacms/blog'));
-        $htmlFiles = array_filter($files, function ($file) {
-            return pathinfo($file, PATHINFO_EXTENSION) === 'html';
-        });
-
+    
         $this->comment(count($htmlFiles).' Files found');
 
-        foreach ($htmlFiles as $file) {
-            \Azzarip\NotaCMS\Blog::loadFile($file->getPathname());
+        foreach ($files as $file) {
+            if (pathinfo($file, PATHINFO_EXTENSION) === 'html') {
+                \Azzarip\NotaCMS\Blog::loadFile($file->getPathname());
+            }
         }
         $this->comment('All files loaded');
 
