@@ -2,9 +2,10 @@
 
 namespace Azzarip\NotaCMS;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
+use Illuminate\Database\Eloquent\Model;
 use RalphJSmit\Laravel\SEO\Support\HasSEO;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
@@ -20,7 +21,7 @@ class Blog extends Model
         'published_at' => 'datetime',
     ];
 
-    protected string $path;
+    protected string $route;
 
     public static function published()
     {
@@ -35,9 +36,10 @@ class Blog extends Model
 
     }
 
-    public static function loadFile(string $path): ?Blog
+    public static function loadFile(string $fileName): ?Blog
     {
-        if (! file_exists($path)) {
+        $path = self::getPath() . $fileName . '.md';
+        if (!File::exists($path)) {
             return null;
         }
 
@@ -63,12 +65,17 @@ class Blog extends Model
 
     private function getFilePath(): string
     {
-        return base_path('content/notacms/').$this->getPath().'/'.$this->slug.'.md';
+        return $this->getPath() . $this->slug . '.md';
     }
 
-    public function getPath()
+    public static function getPath(): string
     {
-        return $this->path ?? \lcfirst(class_basename($this));
+        return base_path('content/notacms/') . self::getRoute() . '/';
+    }
+
+    public static function getRoute()
+    {
+        return \lcfirst(class_basename(static::class));
     }
 
     public function getBodyAttribute()
@@ -78,6 +85,6 @@ class Blog extends Model
 
     public function getUrlAttribute()
     {
-        return url($this->getPath().'/'.$this->slug);
+        return url($this->getRoute().'/'.$this->slug);
     }
 }

@@ -34,9 +34,6 @@ it('creates a migration', function () {
 });
 
 it('creates first post', function () {
-    expect(File::files(base_path('content')))
-        ->toBeEmpty();
-    
     $this->artisan('notacms:new testblog')
         ->assertExitCode(0);
 

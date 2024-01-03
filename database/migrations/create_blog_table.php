@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('slug')->index();
             $table->string('title');
             $table->text('description');
+            $table->string('thumbnail')->nullable();
             $table->timestamp('published_at');
             $table->timestamps();
         });

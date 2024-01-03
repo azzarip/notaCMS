@@ -1,13 +1,16 @@
 <?php
 
 use Azzarip\NotaCMS\Blog;
-
 use function Pest\Laravel\get;
+use Illuminate\Support\Facades\File;
+use Azzarip\NotaCMS\Commands\Actions\CreateContent;
 
 beforeEach(function () {
-    $filePath = base_path('content/notacms/'.array_key_first(config('notacms')).'/MyFirstPost.md');
-    expect(File::exists($filePath))->toBeTrue();
-    $post = Blog::loadFile($filePath);
+    $filePath = base_path('content/notacms/blog/my-first-post.md');
+    if(!File::exists($filePath)) {
+        CreateContent::create('blog');
+    }
+    $post = Blog::loadFile('my-first-post');
     $this->url = $post->url;
 });
 
@@ -24,5 +27,12 @@ it('shows metadescription', function () {
 });
 
 it('shows body', function () {
-    get($this->url)->assertSee('This is my first Post');
+    get($this->url)->assertSee('This is my first post');
+});
+
+afterEach(function () {
+    File::cleanDirectory(app_path('Models'));
+    File::cleanDirectory(database_path('Migrations'));
+    File::cleanDirectory(app_path('content'));
+    File::cleanDirectory(resource_path('views/vendor/notacms/testblog'));
 });

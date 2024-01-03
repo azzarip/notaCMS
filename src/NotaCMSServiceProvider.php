@@ -29,14 +29,7 @@ class NotaCMSServiceProvider extends PackageServiceProvider
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()
-                    ->publishMigrations()
-                    ->publish('views')
                     ->copyAndRegisterServiceProviderInApp();
-
-                $path = base_path('/content/notacms/blog');
-                File::makeDirectory($path, 0755, true, true);
-                $content = file_get_contents(__DIR__.'/../assets/MyFirstPost.md');
-                File::put($path.'/MyFirstPost.md', $content);
             });
     }
 }

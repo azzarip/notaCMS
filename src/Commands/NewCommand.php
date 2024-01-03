@@ -2,9 +2,10 @@
 
 namespace Azzarip\NotaCMS\Commands;
 
+use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
+use Azzarip\NotaCMS\Commands\Actions\CreateContent;
 
 class NewCommand extends Command
 {
@@ -37,20 +38,7 @@ class NewCommand extends Command
         File::put(database_path('migrations/'.now()->format('Y_m_d_His').'_create_'.$blogTable.'_table.php'), $content);
         $this->info('Created new migration.');
 
-        $contentPath = base_path('content/notacms');
-        if (! File::exists($contentPath)) {
-            File::makeDirectory($contentPath, 0755, true);
-        }
-        $contentPath .= '/'.\lcfirst($blog);
-        if (! File::exists($contentPath)) {
-            File::makeDirectory($contentPath, 0755, true);
-            $this->info("Directory '$contentPath' created successfully.");
-        }
-
-        if (! File::exists($contentPath.'/my-first-post.md')) {
-            $content = File::get(__DIR__.'/../../stubs/post.stub');
-            File::put($contentPath.'/my-first-post.md', $content);
-        }
+        CreateContent::create($blog);
 
         $viewPath = resource_path('views/vendor/notacms');
         $viewPath .= '/' . \lcfirst($blog);
