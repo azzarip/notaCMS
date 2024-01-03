@@ -2,6 +2,10 @@
 
 All notable changes to `notaCMS` will be documented in this file.
 
+## Bug Fix - 2024-01-03
+
+It redirects the user to index when slug not found.
+
 ## First Release v1.0.0 - 2024-01-03
 
 - It can create a new blog with command `notacms:new {Blogname}`
