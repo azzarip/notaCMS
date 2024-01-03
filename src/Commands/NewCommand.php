@@ -41,20 +41,20 @@ class NewCommand extends Command
         CreateContent::create($blog);
 
         $viewPath = resource_path('views/vendor/notacms');
-        $viewPath .= '/' . \lcfirst($blog);
+        $viewPath .= '/'.\lcfirst($blog);
         File::ensureDirectoryExists($viewPath);
         $this->info("Directory '$viewPath' created successfully.");
 
-        if (!File::exists($viewPath .  '/index.blade.php')) {
+        if (! File::exists($viewPath.'/index.blade.php')) {
             $content = File::get(__DIR__.'/../../stubs/index.stub');
-            File::put($viewPath .  '/index.blade.php', $content);
+            File::put($viewPath.'/index.blade.php', $content);
         }
-        if (!File::exists($viewPath .  '/show.blade.php')) {
+        if (! File::exists($viewPath.'/show.blade.php')) {
             $content = File::get(__DIR__.'/../../stubs/show.stub');
-            File::put($viewPath .  '/show.blade.php', $content);
+            File::put($viewPath.'/show.blade.php', $content);
         }
 
-        if(config('notacms.' . \lcfirst($blog))) {
+        if (config('notacms.'.\lcfirst($blog))) {
             return self::SUCCESS;
         }
 

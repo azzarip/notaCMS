@@ -1,9 +1,8 @@
 <?php
 
-use Azzarip\NotaCMS\Blog;
+use Azzarip\NotaCMS\Tests\Data\BlogFactory;
 
 use function Pest\Laravel\get;
-use Azzarip\NotaCMS\Tests\Data\BlogFactory;
 
 test('/{path} is taken from config', function () {
     get(array_key_first(config('notacms')))->assertOk();
