@@ -2,12 +2,12 @@
 
 namespace Azzarip\NotaCMS;
 
-use Illuminate\Support\Facades\File;
-use Spatie\LaravelPackageTools\Package;
-use Azzarip\NotaCMS\Commands\NewCommand;
 use Azzarip\NotaCMS\Commands\LoadCommand;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Azzarip\NotaCMS\Commands\NewCommand;
+use Illuminate\Support\Facades\File;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class NotaCMSServiceProvider extends PackageServiceProvider
 {

@@ -1,11 +1,7 @@
 <?php
 
 use Azzarip\NotaCMS\Blog;
-use Illuminate\Support\Facades\File;
-
-beforeEach(function () {
-
-});
+use Illuminate\Support\Facades\Artisan;
 
 it('asks for blog name if not given', function () {
     $this->artisan('notacms:new')
