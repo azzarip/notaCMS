@@ -39,8 +39,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Azzarip\\NotaCMS\\": "src/",
-            "Azzarip\\NotaCMS\\Database\\Factories\\": "database/factories/"
+            "Azzarip\\NotaCMS\\": "src/"
         }
     },
     "autoload-dev": {

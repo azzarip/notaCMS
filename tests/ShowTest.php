@@ -14,6 +14,10 @@ beforeEach(function () {
     $this->url = $post->url;
 });
 
+it('redirects to index if slug not found', function () {
+    get('/blog/wrong-url')->assertRedirect('/blog');
+});
+
 it('gets post from slug', function () {
     get($this->url)->assertSee('My First Post');
 });
