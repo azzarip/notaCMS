@@ -12,8 +12,9 @@ Route::get('/{blog}', function (string $blog) {
 Route::get('/{blog}/{slug}', function (string $blog, string $slug) {
     $model = config('notacms.'.$blog);
     $post = call_user_func([$model, 'findSlug'], $slug);
-    if(is_null($post)){
+    if (is_null($post)) {
         return redirect($blog);
     }
+
     return view('notacms::'.$blog.'.show', compact('post'));
 })->whereIn('blog', array_keys(config('notacms')));
