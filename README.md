@@ -20,41 +20,46 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 You can install the package via composer:
 
 ```bash
-composer require Azzarip/notacms
+composer require azzarip/notacms
 ```
 
-You can publish and run the migrations with:
+You can install the package via:
 
 ```bash
-php artisan vendor:publish --tag="notacms-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="notacms-config"
+php artisan notacms:install
 ```
 
 This is the contents of the published config file:
 
 ```php
 return [
+    'blog_name' => \App\Models\Blog::class
 ];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="notacms-views"
 ```
 
 ## Usage
 
-```php
-$notaCMS = new Azzarip\NotaCMS();
-echo $notaCMS->echoPhrase('Hello, Azzarip!');
+```bash
+php artisan notacms:new 
 ```
+To add a new blog. You will be prompted to add a name/route for the blog index.
+It will create 
+- A model
+- A migration
+- A first post to edit
+- The views to adapt
+
+It automatically registers the blog in the config file. From the config, the package is able to automatically create an index route and a show route for each post of each blog, with route:
+```
+/{blog}/{slug}
+```
+Each blog post will be stored in the `content/notacms/{blog}` directory, each post is a `.md` file with filename the slug. 
+
+```bash
+php artisan notacms:load 
+```
+Uploads to the database all the front matter of each file. Except for the `meta_` fields that are updated with the RalphJ/Laravel-seo content.
+
 
 ## Testing
 
@@ -77,7 +82,6 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [Paride Azzari](https://github.com/Azzarip)
-- [All Contributors](../../contributors)
 
 ## License
 

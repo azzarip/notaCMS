@@ -24,7 +24,7 @@ class Blog extends Model
 
 
 
-    public static function published(): Collection
+    public static function published()
     {
         return self::where('published_at', '<', now())
             ->orderBy('published_at', 'desc')
