@@ -2,10 +2,10 @@
 
 namespace Azzarip\NotaCMS;
 
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 use RalphJSmit\Laravel\SEO\Support\HasSEO;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
@@ -38,8 +38,8 @@ class Blog extends Model
 
     public static function loadFile(string $fileName): ?Blog
     {
-        $path = self::getPath() . $fileName . '.md';
-        if (!File::exists($path)) {
+        $path = self::getPath().$fileName.'.md';
+        if (! File::exists($path)) {
             return null;
         }
 
@@ -65,12 +65,12 @@ class Blog extends Model
 
     private function getFilePath(): string
     {
-        return $this->getPath() . $this->slug . '.md';
+        return $this->getPath().$this->slug.'.md';
     }
 
     public static function getPath(): string
     {
-        return base_path('content/notacms/') . self::getRoute() . '/';
+        return base_path('content/notacms/').self::getRoute().'/';
     }
 
     public static function getRoute()

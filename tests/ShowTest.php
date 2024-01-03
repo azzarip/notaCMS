@@ -1,13 +1,14 @@
 <?php
 
 use Azzarip\NotaCMS\Blog;
-use function Pest\Laravel\get;
-use Illuminate\Support\Facades\File;
 use Azzarip\NotaCMS\Commands\Actions\CreateContent;
+use Illuminate\Support\Facades\File;
+
+use function Pest\Laravel\get;
 
 beforeEach(function () {
     $filePath = base_path('content/notacms/blog/my-first-post.md');
-    if(!File::exists($filePath)) {
+    if (! File::exists($filePath)) {
         CreateContent::create('blog');
     }
     $post = Blog::loadFile('my-first-post');

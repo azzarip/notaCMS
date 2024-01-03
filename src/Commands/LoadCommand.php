@@ -2,8 +2,8 @@
 
 namespace Azzarip\NotaCMS\Commands;
 
-use Illuminate\Support\Arr;
 use Illuminate\Console\Command;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 
 class LoadCommand extends Command
@@ -19,26 +19,28 @@ class LoadCommand extends Command
 
         if (! $blog) {
             $blogs = array_keys(config('notacms'));
-            $blog = $this->choice("Which blog you want to load to database?",
-                Arr::prepend($blogs, 'all'), 
-                $default='all');
+            $blog = $this->choice('Which blog you want to load to database?',
+                Arr::prepend($blogs, 'all'),
+                $default = 'all');
         }
 
-        if($blog === 'all') {
+        if ($blog === 'all') {
             foreach ($blogs as $blog) {
                 $this->loadBlog($blog);
-                $this->comment('All files loaded for: ' . $blog);
+                $this->comment('All files loaded for: '.$blog);
             }
+
             return self::SUCCESS;
         }
 
         $this->loadBlog($blog);
+
         return self::SUCCESS;
     }
 
     private function loadBlog(string $blog): void
     {
-        $files = File::files(base_path('content/notacms/' . $blog));
+        $files = File::files(base_path('content/notacms/'.$blog));
         foreach ($files as $file) {
             if (pathinfo($file, PATHINFO_EXTENSION) === 'md') {
                 $slug = pathinfo($file, PATHINFO_FILENAME);
