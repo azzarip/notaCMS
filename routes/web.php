@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/{blog}', function (string $blog) {
     $model = config('notacms.'.$blog);
     $posts = call_user_func([$model, 'published']);
+
     return view('notacms::'.$blog.'.index', compact('posts'));
 })->whereIn('blog', array_keys(config('notacms')));
 
