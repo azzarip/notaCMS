@@ -1,13 +1,12 @@
 <?php
 
 use Azzarip\NotaCMS\Blog;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Artisan;
 use Azzarip\NotaCMS\Commands\Actions\CreateContent;
+use Illuminate\Support\Facades\File;
 
 beforeEach(function () {
     $filePath = base_path('content/notacms/blog/my-first-post.md');
-    if(!File::exists($filePath)) {
+    if (! File::exists($filePath)) {
         CreateContent::create('blog');
     }
 });

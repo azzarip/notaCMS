@@ -2,10 +2,10 @@
 
 namespace Azzarip\NotaCMS\Commands;
 
-use Illuminate\Support\Str;
+use Azzarip\NotaCMS\Commands\Actions\CreateContent;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
-use Azzarip\NotaCMS\Commands\Actions\CreateContent;
+use Illuminate\Support\Str;
 
 class NewCommand extends Command
 {

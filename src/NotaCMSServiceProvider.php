@@ -4,7 +4,6 @@ namespace Azzarip\NotaCMS;
 
 use Azzarip\NotaCMS\Commands\LoadCommand;
 use Azzarip\NotaCMS\Commands\NewCommand;
-use Illuminate\Support\Facades\File;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
