@@ -21,7 +21,7 @@ class Blog extends Model
         'published_at' => 'datetime',
     ];
 
-    protected string $route;
+    const ROUTE = null;
 
     public static function published()
     {
@@ -75,7 +75,7 @@ class Blog extends Model
 
     public static function getRoute()
     {
-        return \lcfirst(class_basename(static::class));
+        return self::ROUTE ?? \lcfirst(class_basename(static::class));
     }
 
     public function getBodyAttribute()
