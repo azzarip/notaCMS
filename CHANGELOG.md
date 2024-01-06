@@ -2,6 +2,10 @@
 
 All notable changes to `notaCMS` will be documented in this file.
 
+## v1.0.3 - 2024-01-06
+
+Bug fix on getRoute() on Blog class
+
 ## v1.0.2 - 2024-01-04
 
 ### What's changed
