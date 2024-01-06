@@ -75,7 +75,7 @@ class Blog extends Model
 
     public static function getRoute()
     {
-        return self::ROUTE ?? \lcfirst(class_basename(static::class));
+        return static::ROUTE ?? \lcfirst(class_basename(static::class));
     }
 
     public function getBodyAttribute()
